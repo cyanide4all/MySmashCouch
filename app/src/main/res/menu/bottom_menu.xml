@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_sofa"
+        android:enabled="true"
+        android:icon="@mipmap/sofa"
+        android:title="@string/menuitem_1"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_torneo"
+        android:enabled="true"
+        android:icon="@mipmap/trofeo"
+        android:title="@string/menuitem_2"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_mapas"
+        android:enabled="true"
+        android:icon="@mipmap/ringboxeo"
+        android:title="@string/menuitem_3"
+        app:showAsAction="ifRoom" />
+</menu>
