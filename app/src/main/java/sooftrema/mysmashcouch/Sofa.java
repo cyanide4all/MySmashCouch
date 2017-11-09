@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,12 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import sooftrema.mysmashcouch.core.Jugador;
 import sooftrema.mysmashcouch.core.Personaje;
 import sooftrema.mysmashcouch.util.JugadoresAdapter;
+import sooftrema.mysmashcouch.util.PersonajesAdapter;
 import sooftrema.mysmashcouch.util.SharedData;
 
 
@@ -76,6 +80,15 @@ public class Sofa extends Fragment {
                 // 1. Instantiate an AlertDialog.Builder with its constructor
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 final View dialogView = inflater.inflate(R.layout.crear_jugador, null);
+                final GridView gridPersonajes = (GridView)dialogView.findViewById(R.id.CJGrid);
+                gridPersonajes.setAdapter(new PersonajesAdapter(gridPersonajes.getContext()));
+                gridPersonajes.setNumColumns(5);
+                gridPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        ((PersonajesAdapter)gridPersonajes.getAdapter()).setSelectedPosition(position);
+                    }
+                });
                 builder
                         .setTitle("Nuevo Jugador")
                         .setView(dialogView)
@@ -83,10 +96,11 @@ public class Sofa extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String inputText = ((EditText)dialogView.findViewById(R.id.CJNombreJugadorInput)).getText().toString();
-                                Log.d("asdasdasd", inputText);
                                 if(!inputText.equals("")){
                                     ((JugadoresAdapter)listaJugadores.getAdapter())
-                                            .addJugador(new Jugador(inputText, new Personaje("Random")));
+                                            .addJugador(new Jugador(inputText,
+                                                    ((PersonajesAdapter)gridPersonajes.getAdapter())
+                                                            .getSelectedPersonaje()));
                                 }else {
                                     Toast.makeText(getActivity(), "No puede haber jugadores sin nombre", Toast.LENGTH_SHORT).show();
                                 }

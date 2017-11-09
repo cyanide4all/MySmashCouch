@@ -20,4 +20,19 @@
         android:ems="10"
         android:hint="Nombre o Nick"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Main (opcional)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <GridView
+        android:id="@+id/CJGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" />
+
 </LinearLayout>

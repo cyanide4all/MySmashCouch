@@ -16,8 +16,14 @@ public class ImageGetter {
     private static Map<String, Integer> createMap()
     {
         Map<String,Integer> mapa = new HashMap<String,Integer>();
-        mapa.put("Random", R.drawable.random);
-        mapa.put("Fox", R.drawable.fox);
+        mapa.put("Random", R.drawable.stock_90_omakase_01);
+        mapa.put("Mario", R.drawable.stock_90_mario_01);
+        mapa.put("Luigi", R.drawable.stock_90_luigi_01);
+        mapa.put("Peach", R.drawable.stock_90_peach_01);
+        mapa.put("Bowser", R.drawable.stock_90_koopa_01);
+        mapa.put("Yoshi", R.drawable.stock_90_yoshi_01);
+        mapa.put("Rosalina&Luma", R.drawable.stock_90_rosetta_01);
+        mapa.put("Fox", R.drawable.stock_90_fox_01);
         return mapa;
     }
 

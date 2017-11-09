@@ -65,7 +65,6 @@ public class JugadoresAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //TODO TOCHISIMO
         View v = convertView;
 
         if (v == null) {
