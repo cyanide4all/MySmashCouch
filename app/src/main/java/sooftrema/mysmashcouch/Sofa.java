@@ -83,7 +83,6 @@ public class Sofa extends Fragment {
                 final View dialogView = inflater.inflate(R.layout.crear_jugador, null);
                 final GridView gridPersonajes = (GridView)dialogView.findViewById(R.id.CJGrid);
                 gridPersonajes.setAdapter(new PersonajesAdapter(gridPersonajes.getContext()));
-                gridPersonajes.setNumColumns(5);
                 gridPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -151,7 +150,6 @@ public class Sofa extends Fragment {
                                 , TextView.BufferType.EDITABLE
                         );
                 gridPersonajes.setAdapter(new PersonajesAdapter(gridPersonajes.getContext()));
-                gridPersonajes.setNumColumns(5);
                 gridPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

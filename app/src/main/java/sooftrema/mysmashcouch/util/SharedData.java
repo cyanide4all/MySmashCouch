@@ -12,7 +12,16 @@ import sooftrema.mysmashcouch.core.Personaje;
 
 public class SharedData {
 
-    public static String[] nombresPersonajes = { "Mario", "Luigi", "Peach", "Bowser", "Yoshi" };
+    public static String[] nombresPersonajes = { "Random", "Mario", "Luigi", "Peach", "Bowser", "Yoshi",
+            "Rosalina&Luma", "Bowser Jr.", "Wario", "Donkey Kong", "Diddy Kong", "Mr. Game&Watch",
+            "Little Mac", "Link", "Zelda", "Sheik", "Ganondorf", "Toon Link", "Samus",
+            "Zero Suit Samus", "Pit", "Palutena", "Marth", "Ike", "Robin", "Duck Hunt Duo", "Kirby",
+            "King Dedede", "Meta Knight", "Fox", "Falco", "Pikachu", "Charizard", "Lucario",
+            "Jigglypuff", "Greninja", "R.O.B", "Ness", "Captain Falcon", "Villager", "Olimar",
+            "Wii Fit Trainer", "Shulk", "Dr. Mario", "Dark Pit", "Lucina", "Pac-Man", "Mega Man",
+            "Sonic", "Mewtwo", "Lucas", "Roy", "Ryu", "Cloud", "Corrin", "Bayonetta",
+            "Mii", "Mii Fighter", "Mii Swordsman", "Mii Gunner"
+    };
     private static SharedData instance = null;
 
     public ArrayList<Jugador> jugadores;
