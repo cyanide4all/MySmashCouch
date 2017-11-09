@@ -21,7 +21,15 @@ public class Jugador {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Personaje getMain() {
         return main;
+    }
+
+    public void setMain(Personaje main) {
+        this.main = main;
     }
 }

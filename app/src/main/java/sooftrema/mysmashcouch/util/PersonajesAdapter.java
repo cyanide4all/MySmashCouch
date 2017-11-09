@@ -40,7 +40,7 @@ public class PersonajesAdapter extends BaseAdapter {
         if(selectedPosition > -1){
             return personajes.get(selectedPosition);
         }
-        else return null;
+        else return new Personaje("Random");
     }
 
     @Override

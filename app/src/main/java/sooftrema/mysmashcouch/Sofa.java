@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import sooftrema.mysmashcouch.core.Jugador;
@@ -135,6 +136,56 @@ public class Sofa extends Fragment {
                 return false;
             }
         });
+
+        //Y la funcion de modificado
+        listaJugadores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                final View dialogView = inflater.inflate(R.layout.crear_jugador, null);
+                final GridView gridPersonajes = (GridView)dialogView.findViewById(R.id.CJGrid);
+                ((EditText)dialogView.findViewById(R.id.CJNombreJugadorInput))
+                        .setText(
+                                ((JugadoresAdapter)listaJugadores.getAdapter())
+                                        .getJugadores().get(position).getNombre()
+                                , TextView.BufferType.EDITABLE
+                        );
+                gridPersonajes.setAdapter(new PersonajesAdapter(gridPersonajes.getContext()));
+                gridPersonajes.setNumColumns(5);
+                gridPersonajes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        ((PersonajesAdapter)gridPersonajes.getAdapter()).setSelectedPosition(position);
+                    }
+                });
+                builder
+                        .setTitle("Modificar Jugador")
+                        .setView(dialogView)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                PersonajesAdapter adapterPersonajes = ((PersonajesAdapter)gridPersonajes.getAdapter());
+                                JugadoresAdapter adapterJugadores = (JugadoresAdapter)listaJugadores.getAdapter();
+                                EditText input = (EditText)dialogView.findViewById(R.id.CJNombreJugadorInput);
+                                Jugador jugadorModificable = ((JugadoresAdapter)listaJugadores
+                                        .getAdapter()).getJugadores().get(position);
+                                String inputText = input.getText().toString();
+                                if(!inputText.equals("")){
+                                    jugadorModificable.setNombre(inputText);
+                                    jugadorModificable.setMain(adapterPersonajes.getSelectedPersonaje());
+                                    adapterJugadores.notifyDataSetChanged();
+                                }else {
+                                    Toast.makeText(getActivity(), "No puede haber jugadores sin nombre", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("Cancelar",null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+
         return view;
     }
 
