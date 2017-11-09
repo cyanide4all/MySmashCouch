@@ -1,12 +1,25 @@
 package sooftrema.mysmashcouch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+import sooftrema.mysmashcouch.core.Mapa;
+import sooftrema.mysmashcouch.util.MapSetAdapter;
+import sooftrema.mysmashcouch.util.SharedData;
 
 
 /**
@@ -43,6 +56,21 @@ public class Mapas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mapas, container, false);
+        View view = inflater.inflate(R.layout.fragment_mapas, container, false);
+        GridView mapsetGridView = (GridView)view.findViewById(R.id.MapSetGridView);
+        MapSetAdapter msAdapter = new MapSetAdapter(mapsetGridView.getContext());
+        mapsetGridView.setAdapter(msAdapter);
+        mapsetGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intento = new Intent(getActivity(), RandomMapSelector.class);
+                ArrayList<Mapa> mapasForRandom = SharedData.getInstance().mapSets.get(position).getListaMapas();
+                int randomNum = ThreadLocalRandom.current().nextInt(0, mapasForRandom.size());
+                intento.putExtra("mapName", mapasForRandom.get(randomNum).getNombre());
+                startActivity(intento);
+            }
+        });
+        return view;
     }
 }

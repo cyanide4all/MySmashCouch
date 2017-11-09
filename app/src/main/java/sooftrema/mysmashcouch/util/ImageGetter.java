@@ -16,6 +16,7 @@ public class ImageGetter {
     private static Map<String, Integer> createMap()
     {
         Map<String,Integer> mapa = new HashMap<String,Integer>();
+        //Personajes
         mapa.put("Random", R.drawable.stock_90_omakase_01);
         mapa.put("Mario", R.drawable.stock_90_mario_01);
         mapa.put("Luigi", R.drawable.stock_90_luigi_01);
@@ -76,6 +77,10 @@ public class ImageGetter {
         mapa.put("Mii Fighter", R.drawable.stock_90_miifighter_01);
         mapa.put("Mii Swordsman", R.drawable.stock_90_miiswordsman_01);
         mapa.put("Mii Gunner", R.drawable.stock_90_miigunner_01);
+
+        //Mapas
+
+
         return mapa;
     }
 
