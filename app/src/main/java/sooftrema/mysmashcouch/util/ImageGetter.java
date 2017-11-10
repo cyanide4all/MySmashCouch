@@ -79,9 +79,17 @@ public class ImageGetter {
         mapa.put("Mii Gunner", R.drawable.stock_90_miigunner_01);
 
         //Mapas
-
+        mapa.put("Battlefield", R.drawable.battlefield);
+        mapa.put("Final Destination", R.drawable.finaldestination);
+        mapa.put("Smashville", R.drawable.smashville);
+        mapa.put("Town and City", R.drawable.towncity);
+        mapa.put("Dreamland", R.drawable.dreamland);
+        mapa.put("Sistema Lyat", R.drawable.lyat);
 
         return mapa;
+        /*{ "Battlefield", "Final Destination", "Smashville", "Town and City", "Dreamland",
+                    "Random Omega", "Sistema Lyat"},*/
+
     }
 
     public static int GetFromNombre(String nombre){
