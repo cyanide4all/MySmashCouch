@@ -51,7 +51,10 @@ public class MapSetAdapter extends BaseAdapter {
         if (v == null) {
             v = LayoutInflater.from(this.context).inflate(R.layout.mapset_cell, null);
         }
-        ((TextView)v.findViewById(R.id.MapSetName)).setText(listaMapSets.get(position).getNombre());
+        String mapsetName = listaMapSets.get(position).getNombre();
+        ((TextView)v.findViewById(R.id.MapSetName)).setText(mapsetName);
+        ((ImageView)v.findViewById(R.id.MapSetThumbnail))
+                .setImageResource(ImageGetter.GetFromNombre(mapsetName));
         return v;
     }
 

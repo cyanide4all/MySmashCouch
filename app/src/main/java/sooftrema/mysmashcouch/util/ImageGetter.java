@@ -85,10 +85,15 @@ public class ImageGetter {
         mapa.put("Town and City", R.drawable.towncity);
         mapa.put("Dreamland", R.drawable.dreamland);
         mapa.put("Sistema Lyat", R.drawable.lyat);
+        mapa.put("Random Omega", R.drawable.omega);
+
+        //Mapsets
+        mapa.put("Legal", R.drawable.legal);
+        mapa.put("Legal + counterpick", R.drawable.counter);
+        mapa.put("Legal + counterpick + Lyat", R.drawable.counterlyat);
 
         return mapa;
-        /*{ "Battlefield", "Final Destination", "Smashville", "Town and City", "Dreamland",
-                    "Random Omega", "Sistema Lyat"},*/
+        /* "Legal", "Legal + counterpick", "Legal + counterpick + Lyat"*/
 
     }
 
